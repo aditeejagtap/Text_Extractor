@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="images/x-icon" href="/static/images/favicon.jpg">
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>Extractor</title>
+</head>
+
+<body>
+  <div class="form-container">
+    <div class="titlenimg">
+      <h1>Upload files</h1>
+      <img src="/static/images/star.png" alt="star"></img>
+    </div>
+
+    <p>Upload multiple files (PDF/DOCX/DOC) to extract information.<br>
+      Wait for some time after uploading files.
+    </p>
+
+    <form method=post enctype=multipart/form-data>
+      <div class="forminner">
+        <input class="uploadimg" type="file" id="fileInput" name="file" multiple>
+        <label for="fileInput">
+          <img class="cloud" src="/static/images/file_upload.jpg" alt="Upload Image">
+          <div class="caption">Click to select files</div>
+          <p id="fileCountDisplay" class="filecount">No files selected.</p>
+        </label>
+      </div>
+      <input type="submit" value="Upload & Extract" class="upload">
+
+      <script>
+        document.getElementById('fileInput').addEventListener('change', function () {
+          var fileCount = this.files.length;
+          var displayText = fileCount === 1 ? '1 file selected.' : fileCount + ' files selected.';
+          document.getElementById('fileCountDisplay').textContent = displayText;
+        });
+      </script>
+    </form>
+  </div>
+
+</body>
+
+</html>
